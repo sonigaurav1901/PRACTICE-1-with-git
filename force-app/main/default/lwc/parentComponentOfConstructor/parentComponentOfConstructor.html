@@ -1,0 +1,10 @@
+<template>
+    <h1>Hello from Parent Component </h1>
+        
+    <template if:true={display}>
+        <c-constructor-example>
+        </c-constructor-example>
+    </template>
+
+    <lightning-button variant="destructive" label="Show / Hide" title="Destructive action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+</template>

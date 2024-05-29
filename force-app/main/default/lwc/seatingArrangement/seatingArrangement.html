@@ -1,0 +1,108 @@
+<template>
+    <lightning-card>
+        <br>
+        <!-- First Start -->
+        <div class="slds-grid slds-gutters" style="height: 20rem; width: 40rem; margin: 10px;">
+            <!-- First column of Grid -->
+            <div class="slds-col">
+              <span>
+                <!--Select Class --><!-- PickList of class ...  -->
+                    <div class="slds-m-top_medium slds-m-bottom_x-large" style="margin-top: -30px;">
+                        <lightning-combobox
+                            name="progress"
+                            label="Select Class"
+                            value={value}
+                            placeholder="Select Progress"
+                            options={options}
+                            onchange={handleChange} >
+                        </lightning-combobox>
+                    </div>
+                    <br>
+                <!-- Input of rows -->
+                    <div class="slds-m-top_medium slds-m-bottom_x-large" style="margin-top: -70px; ">
+                        <div class="slds-m-top_medium slds-m-bottom_x-large">
+                            <!-- Default/basic -->
+                            <div class="slds-p-around_medium lgc-bg">
+                                <lightning-input type="text" onchange={numberOfRows1} data-id="inpRows" label="Enter Number of rows in Class" ></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <!-- Second Coloumn of Grid -->
+            <div class="slds-col">
+              <span>  &nbsp;&nbsp;&nbsp;&nbsp; </span>
+            </div>
+            <!-- Third Coloumn of Grid -->
+            <div class="slds-col">
+              <span>
+                <!-- Tabular view Chekbox -->
+                <input type="checkbox" value="false" onchange={tableview} data-id="ch1"> &nbsp;&nbsp; Tabular View
+              </span>
+            </div>
+            <!-- Fourth Coloumn of Grid -->
+            <div class="slds-col">
+              <span>
+                <!-- Graphical view Chekbox -->
+                <input type="checkbox" value="false" onchange={graphicview} data-id="ch2"> &nbsp;&nbsp; Graphical View
+              </span>
+            </div>
+          </div>
+        <!-- First grid Finish  -->
+        <!-- Second Grid Start-->
+          
+        <div style=" margin-top: -30%; margin-left: 30px;">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col" if:true={showGraphical} >
+                    <!-- Div 2 Col 1 -->
+                    <span>
+                        <div style="overflow: scroll; border: 3px solid black; height: 15rem; width: 20rem; margin-top: 20px;" data-id="graphDiv" > 
+                            Graphical view
+                            <!-- to Show Inside Div (Students) -->
+                            <template for:each={nR} for:item="x">
+
+                                <div class="slds-grid slds-gutters" key={x.id}>
+                                    <div class="slds-col" data-id={x.id} onclick={clickStudentDetail}>
+                                        <span>
+                                            <div data-id={x.id} style="border: 1.5px solid rgb(43, 40, 40); height: 15px; width: 100px; margin: 3px; margin-left: 18px; ">
+
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col" data-id={x.id2}  onclick={clickStudentDetail}>
+                                        <span>
+                                            <div data-id={x.id2} style="border: 1.5px solid rgb(43, 40, 40); height: 15px; width: 100px; margin: 3px; margin-left: 18px;">
+
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </template>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col" if:true={showTabel} >
+                    <!-- Div 2 Col 2 -->
+                    <span>
+                        <div style="overflow: scroll; border: 3px solid black; height: 15rem; width: 20rem; margin-top: 20px;" > 
+                            <!-- Data tabel -->
+                            Table view
+                            <div style="height: 300px;">
+                                <lightning-datatable
+                                        key-field="id"
+                                        data={data}
+                                        columns={columns}
+                                        onrowaction={handleRowAction}>
+                                </lightning-datatable>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+    </lightning-card>
+</template>

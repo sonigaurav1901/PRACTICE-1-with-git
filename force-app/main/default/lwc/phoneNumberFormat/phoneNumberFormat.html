@@ -1,0 +1,53 @@
+<template>
+    <lightning-card class="card-css">
+        <fieldset class="slds-form-element slds-form-element_compound slds-p-left--small">
+            <div class="slds-form-element__control">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_12-of-12">
+                        <div class="slds-form-element">
+                            <lightning-layout>
+                                <lightning-layout-item class="slds-size_6-of-12" alignment-bump="top">
+                                    <label class="slds-form-element__label" for="text-input-id-47">
+                                        <abbr class="slds-required" title="required">* </abbr>Country
+                                    </label>
+                                    <div class="slds-form-element__control">
+                                        <input type="tel" class="slds-input" data-id="country" name="country" onkeyup={validateNumber}></input>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item class="slds-size_3-of-12" alignment-bump="top">
+                                    <button data-id="btn" type="button" onclick={validateNumber}>Validate</button>
+                                </lightning-layout-item>
+                                <lightning-layout-item class="slds-size_3-of-12" alignment-bump="top">
+                                    <span data-id="valid-msg" class="hide valid-css">✓ Valid</span>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                            <span data-id="error-msg" class="hide error-msg"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </lightning-card>
+</template>
+
+<!-- <template>
+    <lightning-card class="card-css">
+        <fieldset class="slds-form-element slds-form-element_compound">
+            <div class="slds-form-element__control">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-47">
+                                <abbr class="slds-required" title="required">* </abbr>Country
+                            </label>
+                            <div class="slds-form-element__control">
+                                <input lwc:dom="manual" type="tel" class="slds-input" data-id="country" name="country"
+                                    onchange={handleInputChange}></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </lightning-card>
+</template> -->

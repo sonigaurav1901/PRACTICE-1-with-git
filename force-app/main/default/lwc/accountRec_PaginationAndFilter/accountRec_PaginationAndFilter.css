@@ -1,0 +1,118 @@
+.search-bar {
+    border-radius: 30px;
+    border: 1px rgb(168, 168, 168) solid;
+}
+
+.pagination-class {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-page {
+    width: 17px;
+    height: 21px;
+}
+.pagination-page-number {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: grey;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.table-card {
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.search-box-parent {
+    padding-top: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+.filter-parent {
+    /* padding-top: 1rem; */
+    padding-left: 5rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+.filter-picklist {
+    border-radius: 30px;
+}
+
+.table-style {
+    padding: 2rem;
+    padding-top: 0;
+}
+
+td {
+    height: 45px;
+    color: grey;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+th {
+    color: grey;
+    font-weight: 500;
+    height: 40px;
+}
+
+.table-head {
+    border-bottom: 2.5px solid rgb(156, 155, 155);
+}
+
+.data-row {
+    cursor: pointer;
+}
+
+.field-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: grey;
+    padding: 2.5rem;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+}
+
+.close-icon {
+    margin-top: -45px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.values {
+    font-size: 13px;
+    color: grey;
+    padding: 0.6rem;
+    border-radius: 30px;
+    max-width: inherit;
+    margin-right: 1rem;
+    height: 2.5rem;
+    border: 1px solid gray;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.outer-div-of-value {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.detail-card {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+}
+
+.detail-page {
+    display: flex;
+
+}

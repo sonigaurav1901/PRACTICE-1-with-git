@@ -1,0 +1,52 @@
+<template>
+    <lightning-card>
+        <span class="slds-p-horizontal_small" style="font-size: 21px; font-weight: bold;" >LIVE CLASSES</span>
+        <template for:each={data} for:item="data">
+            <lightning-card key={data}>
+                <div style="background-color: rgb(255, 255, 255); margin-top: -50px; margin:20px ;" >
+                <span class="slds-p-horizontal_small" style="font-size: 19px; font-weight: bold;">{data.DateTime}</span> 
+                <br>
+                <span class="slds-p-horizontal_small" style="color: rgb(27, 150, 255); font-size: 17.5px; font: bold; font-weight: bold;">{data.ClassName} </span>
+                <br>
+                <span class="slds-p-horizontal_small">{data.Description}</span>
+                <!-- user icon -->
+                <p class="slds-p-horizontal_small"> <img src={user} alt="" height="34px" width="34px" onclick={userIcon}><span> {data.User}</span> </p>
+
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-4">
+                        <span>
+                            <!-- network button -->
+                            <p class="slds-p-horizontal_small" style="margin-left: 8px; margin-top: 7px;"> <img src={network} alt="" class="blue-icon" height="34px" width="21px" onclick={networkIcon} ><span style="margin-top: 5px;"> {data.Network}</span> </p>
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-4">
+                        <span>
+                            <!-- clock button -->
+                            <p class="slds-p-horizontal_small">
+                                <img src={clock} alt="" class="blue-icon" height="34px" width="28px" onclick={clockIcon} ><span style="margin-top: 5px;"> {data.time}</span> </p>
+                            </p>
+                        </span>
+                    </div>
+                </div>
+                <p></p>
+                <br><br>
+                    <div>
+                        <div style="margin-left: 20px;"><lightning-icon class="yello-icon" size="small" icon-name="utility:socialshare" alternative-text="socialshare" onclick={shareIcon} title="socialshare" style="margin-right: 5px; " ></lightning-icon>
+                        <img src={like} alt="" class="blue-icon" height="34px" width="33px" onclick={favIcon} > 
+                        <!-- <lightning-icon class="yello-icon" size="small" icon-name="custom:custom1" alternative-text="custom1"  onclick={favIcon} title="custom1" style="margin-left: 5px; "></lightning-icon>-->
+                        </div> 
+                        <div style="margin-right: 20px; margin-top: -40px;" class="slds-grid" >
+                            <img src={multiUsers} style="margin-left: 70%; height: 33px; margin-top: -1px; width: 71px;" alt="" height="80px" width="50px">
+                            <lightning-button variant="brand" title="count" label={data.countOfJoinies}  slot="actions"
+                             style=" margin-left: 2px; height: 13px; width: 13px;" ></lightning-button>
+
+                             <div style="background-color: #0176D3; padding: 3px; height: 29px; width: 50px; margin-left: 65px;"><input type="button" value="JOIN" onclick={joinButton} style="background-color: #0176D3; color: white ; border:0.25px solid rgb(243, 243, 243); margin: 1.15px;"></div>
+                            <!-- <lightning-button variant="brand" title="Primary action" label="Join" onclick={joinButton} slot="actions" style=" margin-left: 20px; "></lightning-button> -->
+                        </div>
+                    </div> 
+                </div> 
+                <span style="color: grey; font: bold;"><hr style="width: 100%; color: gray;"></span>
+            </lightning-card>
+        </template>
+    </lightning-card>
+</template>

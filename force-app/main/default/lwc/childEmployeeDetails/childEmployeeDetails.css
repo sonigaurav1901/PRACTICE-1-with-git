@@ -1,0 +1,16 @@
+.card-css {
+    background-color: whitesmoke;
+    border-radius: 12px;
+    max-width: 19rem;
+    min-width: 19rem;
+    box-shadow: 4px 4px 5px .5px;
+}
+
+.img-css {
+    height: 6rem;
+}
+
+.center-align {
+    width: fit-content;
+    margin: 0 auto;
+}

@@ -1,0 +1,67 @@
+<template>
+
+    <lightning-card>
+        <p style="font-size: 3ch;">Parent-Componenet</p>
+        <lightning-accordion class="example-accordion"
+            onsectiontoggle={Parent_handleToggleSection}
+            active-section-name="B">
+                <template for:each={parent_data} for:item="p"> 
+                
+                    <div key={p.id} style="display: flex;">
+                        <lightning-accordion-section name={p} label={p} >
+                            
+                            <!-- data inside accordian -->
+                            <p>Data of {p}</p>
+                            <template if:true={ShowParentdataTable}>
+                                <div style="height: 230px; width: 550px;">
+                                    <lightning-datatable
+                                            key-field="id"
+                                            data={ParentTableKaData}
+                                            columns={ParentColumns}>
+                                    </lightning-datatable>
+                                </div>
+                            </template>
+                            
+                        </lightning-accordion-section>
+                        
+
+                        <br>
+                    
+                    </div>
+                </template>
+
+            </lightning-accordion>
+
+    </lightning-card>
+
+
+    <lightning-card >
+    <!-- Accordian Code -->
+        <p style="font-size: 3ch;">Child-Componenet</p>
+        <br>
+        <template if:true={showAccordian}>
+            <!-- <p class="slds-text-heading_small">{activeSectionMessage}</p> -->
+        
+            <!-- <lightning-button onclick={handleSetActiveSectionC} label="Open Section C"></lightning-button> -->
+            <lightning-accordion class="example-accordion"
+            onsectiontoggle={handleToggleSection}
+            active-section-name="B">
+                <template for:each={data} for:item="x"> 
+                
+                    <!-- child Componenet tag Name -->
+                    <div key={x}>
+                        <c-child-comp-ofp-c-obj x_value={x}> </c-child-comp-ofp-c-obj>
+                    </div>
+
+                </template>
+
+            </lightning-accordion>
+
+        </template>
+    
+    </lightning-card>
+
+    
+
+
+</template>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>AccountFields</label>
+    <protected>false</protected>
+    <values>
+        <field>AccountFields__c</field>
+        <value xsi:type="xsd:string">{ &quot;section1&quot;: [&quot;Staff_ID__c&quot;,&quot;Name&quot;,&quot;Email__c&quot;,&quot;Active__c&quot;], &quot;section2&quot;: [&quot;NumberOfEmployees&quot;,&quot;AccountSource&quot;,&quot;Industry&quot;,&quot;Phone&quot;,&quot;Total_Amount__c&quot;] }</value>
+    </values>
+</CustomMetadata>

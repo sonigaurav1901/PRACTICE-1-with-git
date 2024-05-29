@@ -1,0 +1,9 @@
+<apex:page controller="hubspotAss" action="{!getcode}">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Hubspot" action="{!mymeth}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

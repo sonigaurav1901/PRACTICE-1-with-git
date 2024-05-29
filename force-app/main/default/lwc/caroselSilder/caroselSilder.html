@@ -1,0 +1,23 @@
+<template>
+    <div class="slider">
+        <div class="slides" onscroll={handleScrolling}>
+            <template for:each={carouselData} for:item="slide" for:index="index">
+                <div key={slide.index} class="slide" data-counter={slide.id} data-href={slide.background_image}>
+                    <div class="slds-p-around--large">
+                        <p class="carouselTag">{slide.title}</p><br>
+                        <div class="carouselContent">
+                            <lightning-formatted-rich-text
+                                value={slide.content}>
+                            </lightning-formatted-rich-text>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div style="text-align:center;margin: 10px; position: relative; bottom :32px; left:0; right:0;">
+            <template for:each={carouselData} for:item="slide" for:index="index">
+                <span key={slide.id} class="dot deactive" data-id={slide.id} onclick={handleOpenSlide}></span>
+            </template>
+        </div>
+    </div>
+</template>

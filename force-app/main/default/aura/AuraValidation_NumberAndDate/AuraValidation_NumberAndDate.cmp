@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" 
+                access="global" >
+    <div>
+    	Enter a Number :- <ui:inputText aura:id="inputCmp" />
+        <br/>
+        <lightning:button label="Submit" onclick="{!c.doAction}" />
+    </div>
+    
+    <aura:attribute name="testDate" type="date" />
+    <aura:attribute name="dateValidationError" type="boolean" />
+    
+    <div class="wide">
+    	<lightning:input class="{v.dateValidationError ? 'slds-has-error' :''}"
+                         type="date"
+                         label="Enter Date"
+                         value="{!v.testDate}"
+                         name="date"
+                         onchange="{!c.dateUpdate}" />
+        
+        <aura:if isTrue="{!v.dateValidationError}">
+        	<div class="slds-text-color-error slds-p-left-x-small">
+            	Date must be in pressent of future...
+            </div>
+        </aura:if>
+        
+        <br/>
+        <lightning:button disabled = "{!v.dateValidationError}"
+                          variant="brand" onclick="{!c.Submit}"
+                          label="Submit" />
+        
+    </div>
+    
+</aura:component>

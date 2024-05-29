@@ -1,0 +1,300 @@
+<template>
+    <lightning-card>
+
+        <br><br>
+        <ul class="slds-timeline">
+            <template for:each={data} for:item="item">
+               
+                <li key={item.Id}>
+
+                    <div class="slds-timeline__item_expandable slds-timeline__item_task">
+                        <span class="slds-assistive-text">task</span>
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon"
+                                    title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this"
+                                    aria-controls="task-item-base-69">
+                                    <svg class="slds-button__icon slds-timeline__details-action-icon"
+                                        aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new_task"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Toggle details for Review proposals for EBC deck
+                                        with larger team and have marketing review this</span>
+                                </button>
+
+                                <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon"
+                                    title="task">
+
+                                    <lightning-icon icon-name={item.Icon}></lightning-icon>
+                                </div>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                    <div
+                                        class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                        <div class="slds-checkbox">
+                                            <input type="checkbox" name="options" data-id="checkbox-unique-id-18"
+                                                value="checkbox-unique-id-18" />
+                                            <label class="slds-checkbox__label" for="checkbox-unique-id-18">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label slds-assistive-text">Mark Review
+                                                    proposals
+                                                    for EBC deck with larger team and have marketing review this
+                                                    complete</span>
+                                            </label>
+                                        </div>
+                                        <h3 class="slds-truncate"
+                                            title="Review proposals for EBC deck with larger team and have marketing review this">
+                                            <a href="#">
+                                                <strong>{item.Subject}</strong>
+                                            </a>
+                                        </h3>
+                                        <div class="slds-no-flex">
+                                            <span class="slds-icon_container slds-icon-utility-rotate"
+                                                title="Recurring Task">
+                                                <svg class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
+                                                    aria-hidden="true">
+                                                    <use
+                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#rotate">
+                                                    </use>
+                                                </svg>
+                                                <span class="slds-assistive-text">Recurring Task</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                                        <p class="slds-timeline__date">9:00am | {item.Date}</p>
+
+                                        <!-- <div class="slds-p-around_medium lgc-bg"> -->
+                                        <lightning-button-menu alternative-text="Show menu" onselect={changeHandler}
+                                            data-id={item.Id} data-date={item.Date} data-status={item.Status}>
+                                            <!-- <template for:each={item.h4} for:item="hh">
+                                                <lightning-menu-item key={hh} value={hh} label={hh}>
+                                                </lightning-menu-item>
+                                            </template> -->
+                                        </lightning-button-menu>
+                                        <!-- </div> -->
+
+                                    </div>
+                                </div>
+                                <!-- <p class="slds-m-horizontal_xx-small">
+                                    <a href="#">{item.h1}</a> {item.h2}
+                                    <a href="#">{item.h3}</a>
+                                </p> -->
+                                <article
+                                    class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small"
+                                    data-id="task-item-base-69" aria-hidden="true">
+                                    <ul class="slds-list_horizontal slds-wrap">
+                                        <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                            <span class="slds-text-title slds-p-bottom_x-small">Name</span>
+                                            <span class="slds-text-body_medium slds-truncate" title="Charlie Gomez">
+                                                <a href="#"></a>
+                                            </span>
+                                        </li>
+                                        <li class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small">
+                                            <span class="slds-text-title slds-p-bottom_x-small">Related To</span>
+                                            <span class="slds-text-body_medium slds-truncate"
+                                                title="Tesla Cloudhub + Anypoint Connectors">
+                                                <a href="#">Tesla Cloudhub + Anypoint Connectors</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <span class="slds-text-title">Description</span>
+                                        <p class="slds-p-top_x-small">Need to finalize proposals and brand details
+                                            before
+                                            the
+                                            meeting</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </template>
+        </ul>
+
+        <!-- Comment Modal -->
+        <template if:true={isShowModal}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideModalBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Comments </h2>
+                    </header>
+
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning-input type="text" label="Enter some text" onchange={holdinputvlue} value={value}>
+                        </lightning-input>
+                    </div>
+
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+                        <button class="slds-button slds-button_neutral" onclick={SaveComment}>Save</button>
+                    </footer>
+
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <!-- modal end -->
+
+        <!-- Change Date -->
+        <template if:true={DateModal}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideDateBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Change Date </h2>
+                    </header>
+
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        <lightning-input type="text" label="Enter some text" onchange={holdDateValue} value={valuee}
+                            class="date"></lightning-input>
+                    </div>
+
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={hideDateBox}>Cancel</button>
+                        <button class="slds-button slds-button_neutral" onclick={SaveDate}>Save</button>
+                    </footer>
+
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <!-- modal end -->
+
+        <!-- Status Modal -->
+        <template if:true={StatusModal}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideDateBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">Change Status </h2>
+                    </header>
+
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                        <lightning-combobox name="progress" label="Status" value={Status_value}
+                            placeholder={placeholder_value} options={options} onchange={handleChange}>
+                        </lightning-combobox>
+                    </div>
+
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={hideStatusBox}>Cancel</button>
+                        <button class="slds-button slds-button_neutral" onclick={SaveStatus}>Save</button>
+                    </footer>
+
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <!-- modal end -->
+
+        <!-- Priority Modal -->
+        <template if:true={PriorityModal}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideDateBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-04" class="slds-text-heading_medium slds-hyphenate">Change Priority </h2>
+                    </header>
+
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-4">
+                        <lightning-combobox name="progress" label="Priority" value={priority_value}
+                            placeholder={placeholder_value} options={options_priority} onchange={handleChange_priority}
+                            required></lightning-combobox>
+                    </div>
+
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={hidePrioirtyBox}>Cancel</button>
+                        <button class="slds-button slds-button_neutral" onclick={SavePriority}>Save</button>
+                    </footer>
+
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <!-- modal end -->
+
+        <!-- Quick Student Name -->
+        <template if:true={StudentModal}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={hideStudentBox}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-05" class="slds-text-heading_medium slds-hyphenate">Quick Student Name
+                        </h2>
+                    </header>
+
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-5">
+                        <lightning-input type="text" label="Name" onchange={holdname} value={namevalue}>
+                        </lightning-input>
+                        <lightning-input type="text" label="Email" onchange={holdEmail} value={emailvalue}>
+                        </lightning-input>
+                        <lightning-input type="text" label="Phone" onchange={holdPhone} value={phonevalue}>
+                        </lightning-input>
+                    </div>
+
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={hideStudentBox}>Cancel</button>
+                        <button class="slds-button slds-button_neutral" onclick={SaveStudent}>Save</button>
+                    </footer>
+
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+
+    </lightning-card>
+</template>

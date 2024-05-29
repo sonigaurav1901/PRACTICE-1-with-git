@@ -1,0 +1,17 @@
+<template>
+    <div class="card-css">
+        <lightning-accordion>
+            <template for:each={AccountData} for:item="accObj">
+                <lightning-accordion-section key={accObj.Id} name={accObj.Name.value} label={accObj.Name.value}>
+                    <div class="aligh-cards">
+                        <template for:each={accObj.Contacts} for:item="contact">
+                            <div key={contact.id}>
+                                <c-child-employee-details></c-child-employee-details>
+                            </div>
+                        </template>
+                    </div>
+                </lightning-accordion-section>
+            </template>
+        </lightning-accordion>
+    </div>
+</template>

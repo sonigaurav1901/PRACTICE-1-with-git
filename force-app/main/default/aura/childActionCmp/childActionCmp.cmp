@@ -1,0 +1,15 @@
+<aura:component>
+        <aura:attribute name="parentAction" type="Aura.Action" />
+        <aura:attribute name="valueForParent" 
+                        type="String" 
+                        default="child value for parent" />
+    	<input class="my-input" 
+                         aura:id="userInput" 
+                         label="Enter a value" 
+               onkeyup="{!c.handleSubmit}"></input>
+      
+        <p class="my-input">Child component</p>
+        
+    	<ui:button label="Call Parent Method" press="{!v.parentAction}" />
+
+</aura:component>

@@ -1,0 +1,16 @@
+.card-css {
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 4px 4px 20px 1.8px;
+    
+}
+
+.aligh-cards {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 1.2rem;
+    padding: 1rem;
+    height: auto;
+    overflow-x: scroll;
+}

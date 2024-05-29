@@ -1,0 +1,81 @@
+<template>
+    <lightning-card icon-name="custom:custom19" title='CSV File Read'>
+        <div style="margin-left: 3%">
+            <lightning-file-upload accept={acceptedCSVFormats} 
+                                   label="Attach receipt" 
+                                   multiple="multiple" 
+                                   onuploadfinished={uploadFileHandler} 
+                                   record-id={recordId}></lightning-file-upload>
+        </div>
+    </lightning-card>
+
+    <template if:true={showPopUp}>
+
+      <div style="overflow: scroll;">
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+              <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+              </button>
+              <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Maping Fields</h1>
+              </div>
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="height: 350px;" >
+                <!-- Data inside modal -->
+                  <!-- Fileds of account -->
+                  <lightning-card style="background-color: darkgrey;">
+                      <template for:each={AccFields} for:item="field">
+                        <!-- for grid -->
+
+                        <div class="slds-grid slds-gutters" key={field.Id}>
+                          <div class="slds-col">
+                            <span>
+                              <div style="margin-left: 20px;">
+                                Field is : {field} 
+                              </div>
+                              <!-- </lightning-card> -->
+                            </span>
+                          </div>
+                          <lightning-combobox
+                              name="progress"
+                              
+                              data-id={field}
+                              placeholder="Select"
+                              options={columns}
+                              onchange={selectionChangeHandler}  
+                              style="margin-right: 50px; margin-top: -30px; width: 200px;"></lightning-combobox>
+                          <!-- <div class="slds-col" data-id={field}>
+                            <span>
+                                <select class="slds-select" 
+                                  onchange={selectionChangeHandler} 
+                                  disabled={isPicklistDisabled}
+                                  required={isAttributeRequired}>
+                                  <option onchange={selectionChangeHandler} value="Select">Select</option>
+                                    <template for:each={columns} for:item="columns" >
+                                      <option key={columns.label} data-id={field} class="uiInputSelectOption" onchange={selectionChangeHandler} value={columns.value}>{columns.value}</option>
+                                    </template>
+                                  </select>
+                            </span>
+                          </div> -->
+                        </div>
+                        <br key={field}>
+                      </template>
+                    </lightning-card>
+                  </div>
+                  <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeModal}>Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={saveDetails}>Save</button>
+                  </div>
+              </div>
+            </section>
+            </div>
+        
+          
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+      
+    </template>
+
+</template>

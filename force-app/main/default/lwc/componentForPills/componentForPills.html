@@ -1,0 +1,7 @@
+<template>
+    
+    <template for:each={data} for:item="x">
+        <lightning-button key={x.Id} variant="base" label={x.Name} title="Looks like a link" onclick={handleClick} class="slds-m-left_x-small" style="border: 1px solid black;"></lightning-button>
+    </template>
+
+</template>

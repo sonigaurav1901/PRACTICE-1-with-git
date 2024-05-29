@@ -1,0 +1,8 @@
+.yello-icon{
+    --sds-c-icon-color-foreground-default: rgba(252, 181, 0, 0.731);
+
+}
+.blue-icon{
+    --sds-c-icon-color-foreground-default: rgba(8, 69, 238, 0.656);
+
+}

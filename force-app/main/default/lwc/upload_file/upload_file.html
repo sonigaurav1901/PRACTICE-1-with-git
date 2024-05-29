@@ -1,0 +1,26 @@
+<template>
+
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="select-01">Select Label</label>
+        <div class="slds-form-element__control">
+        <div class="slds-select_container">
+        <select onchange={onChange} class="slds-select" id="select-01">
+        <option>Select…</option>
+        <option>Account</option>
+        <option>Contact</option>
+        <option>Opportunity</option>
+        </select>
+        </div>
+        </div>
+    </div>
+    <template if:true={on}>
+        <div style="background-color: aquamarine;">
+            Selected Object is : {selectedObj}
+        </div>
+    </template>
+
+    <lightning-input type="file" label="file" onchange={fun}></lightning-input>
+    <template if:true={show}>
+        <img src={source} >
+    </template>
+</template>

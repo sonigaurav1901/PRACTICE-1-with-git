@@ -1,0 +1,9 @@
+<apex:page controller="quickBook" action="{!getAcessToken}">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Get authorization code" action="{!main}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+     </apex:form>
+</apex:page>

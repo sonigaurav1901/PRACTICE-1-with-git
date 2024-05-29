@@ -1,0 +1,48 @@
+<template>
+
+    <lightning-card>
+
+
+        
+
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+            <!-- Default/basic -->
+            <div class="slds-p-around_medium lgc-bg" style="width: 50%;">
+                <!-- For Input  -->
+                <lightning-input data-id="inpEmail" type="email" label="Email address" style="margin-left: 8px;"></lightning-input>
+                <br>
+                <!-- For search Button -->
+                <lightning-button variant="brand-outline" label="Search" title="Primary action with lighter look" onclick={search} class="slds-m-left_x-small"></lightning-button>
+
+            </div>
+        </div>
+        <template if:true={showBox}>
+            <div style="margin-left: 27px; margin-top: -45px;">
+                <lightning-card style="background-color: burlywood;">
+                    <div data-id="listBox" style="background-color: burlywood; height: 3rem; width: 6rem;" ></div>
+                </lightning-card>
+            </div>
+        </template>
+
+        <div>
+            <div style="height: 180px;">
+                <lightning-datatable
+                        key-field="id"
+                        data={data}
+                        columns={columns}
+                        onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </div>
+        </div>
+        <template if:true={showDetails}>
+            <div style="height: 140px;">
+                <lightning-datatable
+                        key-field="id"
+                        data={data1}
+                        columns={columns1}
+                        onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </div>
+        </template>
+    </lightning-card>
+</template>

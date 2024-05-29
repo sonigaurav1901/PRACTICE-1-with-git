@@ -1,0 +1,95 @@
+<template>
+<!-- <template> -->
+        <template for:each={data} for:item="course" if:false={isModalOpen}>
+            <!-- <p key={trainer.id}>
+                    {trainer.Name} 
+            </p> -->
+            {course.Name}
+            <div style="height: 300px;" key={course.Id}>
+                
+                <lightning-datatable
+                        key-field="id"
+                        data={course.institute_Trainee__r}
+                        columns={columns}
+                        onrowaction={handleAction}
+                >
+                </lightning-datatable>
+            </div>
+        </template>
+
+
+       
+<!--Use template if:true to display/hide popup based on isModalOpen value--> 
+<template if:true={isModalOpen}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Record Marks</h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                Trainer Name is : {TraineName} <br>
+                Trainer Id is : {TrainerId} <br>
+                Trainer Marks is : <input type="text" value={TraineMarks} class="tMarks"> <br>
+                Trainer Email is : {TraineEmail} <br>
+                
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveDetails} title="save">Save</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+
+
+
+    <!-- Modal 2 -->
+
+    <template if:true={isView}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">View Record Marks</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    
+                    Trainer Name is : {TraineName} <br>
+                    Trainer Id is : {TrainerId} <br>
+                    Trainer Marks is : {TraineMarks} <br>
+                    Trainer Email is : {TraineEmail} <br>
+                    
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Ok</button>
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+    </template>
+</template>

@@ -1,0 +1,128 @@
+<template>
+  <lightning-card>
+      <!-- data table -->
+      <div style="height: auto;">
+          <c-medeator-comp
+                  key-field="id"
+                  data={data}
+                  columns={columns}
+                  onrowaction={handleRowAction}>
+          </c-medeator-comp>
+      </div>
+
+      <!-- pocFileUpload.html -->
+<template if:true={shPills}>
+  <c-component-for-pills record-id={value}
+                     accepted-formats={typeAttributes.acceptedFormats}>
+  </c-component-for-pills>
+
+  <c-component-for-pills key-field="id"
+				data={data}
+				columns={columns}
+				onuploadfinished={handleUploadFinished}
+				hide-checkbox-column>
+	</c-component-for-pills>
+</template>
+
+
+  </lightning-card>
+
+
+  <!-- Modal of Paymnet -->
+  <template if:true={paymentpopup}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closePaymentpopup}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Payment</h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                <!-- Inside Modal -->
+                <!-- owner Name -->
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-47">
+                      <abbr class="slds-required" > </abbr>Owner Name</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" id="ownerName" data-id="ownerName"   class="slds-input" />
+                    </div>
+                  </div>
+
+                  <!-- card Number -->
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-47">
+                      <abbr class="slds-required" title="required">* </abbr>Card Number</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" id="cardNumber" data-id="cardNumber"  required="" class="slds-input" />
+                    </div>
+                  </div>
+
+
+                  <!-- grid for month year and cvv -->
+                  <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <span>
+                        <!-- For Month -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-47">
+                              <abbr class="slds-required" title="required">* </abbr>Month</label>
+                            <div class="slds-form-element__control">
+                              <input type="text" id="month" data-id="month"  required="" class="slds-input" />
+                            </div>
+                          </div>
+                        </span>
+                    </div>
+                    <div class="slds-col">
+                        <span>
+                            <!-- for Year -->
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="text-input-id-47">
+                                  <abbr class="slds-required" title="required">* </abbr>Year</label>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="year" data-id="year"  required="" class="slds-input" />
+                                </div>
+                              </div>
+                        </span>
+                    </div>
+                    <div class="slds-col">
+                        <span>
+                            <!-- for cvv -->
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="text-input-id-47">
+                                  <abbr class="slds-required" title="required">* </abbr>cvv</label>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="cvv" data-id="cvv"  required="" class="slds-input" />
+                                </div>
+                              </div> 
+                        </span>
+                    </div>
+                  </div>
+                <!-- Amount payable -->
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-47">
+                      <abbr class="slds-required" title="required">* </abbr>Payable Amount</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" id="amountPayable" data-id="amountPayable" required="" class="slds-input" />
+                    </div>
+                  </div>
+
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={closePaymentpopup} title="Cancel">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={submitPaymentpopup} title="OK">Submit</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>

@@ -1,0 +1,130 @@
+<template>
+    <div class="table-card">
+
+        <lightning-card>
+
+            <template if:true={showTable}>
+                <!-- Head portion of search and filter -->
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                        <div class="slds-form-element search-box-parent">
+                            <input type="text" id="text-input-id-46" placeholder="Search" onkeyup={searchRecords} class="slds-input search-bar">
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control filter-parent">
+                                <lightning-combobox class="filter-picklist" name="combobox" placeholder="Filter"
+                                    value={selectedValue} onchange={filterApply} options={RecordTypeFilter}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table portion -->
+                <div class="table-style">
+                    <table>
+                        <tr class="table-head">
+                            <template for:each={coloumns} for:item="col">
+                                <th key={col}>{col}</th>
+                            </template>
+                        </tr>
+                        <template for:each={dataToShow} for:item="row">
+                            <tr class="data-row" key={row} onclick={openRec} data-id={row.Id}>
+                                <td>{row.Staff_Id__c}</td>
+                                <td>{row.Name}</td>
+                                <td>{row.Email}</td>
+                                <td>{row.RecordType}</td>
+                                <td>
+                                    <template if:true={row.Status}>
+                                        <img src={activeImg} height="15px" width="15px" alt=""> Active
+                                    </template>
+                                    <template if:false={row.Status}>
+                                        <img src={inactiveImg} height="12px" width="14px" alt=""> InActive
+                                    </template>
+                                </td>
+                            </tr>
+                        </template>
+                    </table>
+                </div>
+                <!-- code for pagination -->
+
+                <div class="pagination-class">
+                    <div class="pagination-page">
+                        <div class="pagination-page-number" data-id="prevButton" onclick={previusPage} style="display: none;">{prevBtn}</div>
+                    </div>
+                    <div class="pagination-page">
+                        <span class="pagination-page-number make-bold-onclick" data-data="" onclick={pageNumber} data-id={currentval}>{currentval}</span>
+                    </div>
+                    <div class="pagination-page">
+                        <span class="pagination-page-number make-bold-onclick" data-data="" onclick={pageNumber} data-id={nextval}>{nextval}</span>
+                    </div>
+                    <div class="pagination-page">
+                        <span class="pagination-page-number make-bold-onclick" data-data="" onclick={pageNumber} data-id={nextval2}>{nextval2}</span>
+                    </div>
+                    <div class="pagination-page">
+                        <span class="pagination-page-number" data-id="nextButton" onclick={nextPage}>{nextBtn}</span>
+                    </div>
+                </div>
+
+            </template>
+            <!-- Code to show detail page -->
+            <template if:true={showDetailpage}>
+                <div class="slds-grid slds-wrap">
+					<div class="footer-row slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+						<lightning-card>
+                            <div class="close-icon" onclick={closeDetail}>
+                                <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                            </div>
+                            <!-- section 1 -->
+                            <div class="slds-grid slds-wrap detail-card">
+                                <template for:each={section1} for:item="section">
+                                    <div key={section.key} class="slds-col slds-size_1-of-1 slds-large-size_6-of-12" id={section.key}>
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-size_5-of-12">
+                                                <div class="field-label">
+                                                    {section.key}
+                                                </div>
+                                            </div>
+                                            <div class="slds-size_7-of-12 outer-div-of-value">
+                                                <div class="values">
+                                                    {section.value} 
+                                                </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </template>
+                            </div>
+                            <!-- section 2 -->
+                            <div class="slds-grid slds-wrap detail-card">
+                                <template for:each={section2} for:item="section">
+                                    <div key={section.key} class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 " id={section.key}>
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-size_5-of-12">
+                                                <div class="field-label">
+                                                    {section.key}
+                                                </div>
+                                            </div>
+                                            <div class="slds-size_7-of-12 outer-div-of-value">
+                                                <div class="values">
+                                                    {section.value}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-card>
+					</div>
+					<div class="footer-row slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+					  	<!-- <c-opp-compliance-chart-l-w-c-assignment account-id="0015i00000uaAnnAAE"> -->
+                            <c-opp-compliance-chart-l-w-c-assignment account-id={currentSelectedRecord}>
+                            </c-opp-compliance-chart-l-w-c-assignment>
+					</div>
+				  </div>
+                </div>
+            </template>
+        </lightning-card>
+    </div>
+</template>

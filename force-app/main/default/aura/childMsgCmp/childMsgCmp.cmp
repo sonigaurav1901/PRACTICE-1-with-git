@@ -1,0 +1,11 @@
+<aura:component >
+	<aura:method name="show" action="{!c.showMessage}" access="PUBLIC">
+        <aura:attribute name="message" type="String" default=""/>
+    </aura:method>
+    <aura:method name="error" action="{!c.showErrorMessage}" access="PUBLIC">
+        <aura:attribute name="message" type="String" default=""/>
+    </aura:method>
+    <aura:method name="remove" action="{!c.removeMessage}" access="PUBLIC" />
+    
+    <div aura:id="messages" />
+</aura:component>

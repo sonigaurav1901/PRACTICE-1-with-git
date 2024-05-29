@@ -1,0 +1,15 @@
+.card-css {
+    border-radius: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid-css {
+    color: green;
+}
+
+.error-msg {
+    color: red;
+}

@@ -1,0 +1,9 @@
+<aura:component >
+	<h1>Calling methods of Child component through Parent Component</h1>
+    <hr/>
+    <c:childMsgCmp aura:id="messages" />
+    
+    <ui:button label="Show confirmation" press="{!c.handleShow}"/>
+    <ui:button label="Show Error" press="{!c.handleError}"/>
+    <ui:button label="Remove Message" press="{!c.handleRemove}"/>
+</aura:component>

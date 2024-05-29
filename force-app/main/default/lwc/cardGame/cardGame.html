@@ -1,0 +1,139 @@
+<template>
+    <lightning-card title="Universal Container company " icon-name="action:new_account">
+            <!-- taking user Name and email  -->
+        <template if:true={EnterGame}>
+                    <div style="margin-left:35%;display:flexbox;height:200px;width:400px; border: 3px solid black; border-radius: 5%; background-color: rgba(25, 141, 243, 0.3);">
+                            <div style="margin-left:100px;">
+                                    <lightning-input style="width:200px;margin-top:1vh;" type="text" placeholder="Enter Name" class="UserName"></lightning-input>
+                                    <lightning-input style="width:200px;margin-bottom:3vh;" type="email"  placeholder="Enter Email" class="UserEmail"></lightning-input>
+                                    <lightning-button style="margin-left:50px;" label="Continue" onclick={SaveUserInfo}></lightning-button>
+                            </div>
+                    </div>
+            </template>
+
+            <!-- Level complexity Easy,Medium,Hard -->
+            <template if:true={UserCreate}>
+                    <div style="margin-top: 4vh;margin-left:35%;display:flexbox;height:200px;width:400px; border: 3px solid black; border-radius: 5%; background-color: rgba(49, 244, 244, 0.3);">
+                            <div style="margin-left:150px; margin-top:4vh">
+                                    <lightning-button  type="button" style="margin-left:10px"  label="Easy"  onclick={LevelEasy}></lightning-button>
+                            </div>
+                            <div style="margin-left:150px; margin-top:3vh">
+                                    <lightning-button  type="button"   label="Medium"  onclick={LevelMedium}></lightning-button>
+                            </div>
+                            <div style="margin-left:150px; margin-top:3vh">
+                                    <lightning-button  type="button" style="margin-left:10px"  label="Hard"  onclick={LevelHard}></lightning-button>
+                            </div>
+                    </div>
+            </template>
+
+            <!-- Showing Cards of Easy level -->
+
+            <template if:true={ShowGameEasy}>
+                    <div style="margin-top: 10vh;margin-left:1.5%;display:flexbox;height:800px;width:875px; border: 3px solid black; border-radius: 5%; background-color: rgba(110, 193, 244, 0.3);">
+                            <div  style="background-color: rgba(0, 0, 0, 0.1);padding: 20px;border-radius: 30px; margin-top:2vh">
+                                    <div  style="font-size: 25px;">
+                                            Player Name : {PlayerName}
+                                    </div>
+                                    <div  style="font-size: 25px;">
+                                            Total Source : {score}
+                                    </div>
+                            </div>
+                            <div  style="background-color: rgba(0, 0, 0, 0.1);padding: 20px;border-radius: 30px; margin-top:2vh">
+                                    <div  style="font-size: 25px;text-align:center;">
+                                            {TimeEasy}
+                                    </div>
+                            </div>
+                            <div class="slds-grid slds-gutters" style="margin-top: 7vh; margin-left:6%">
+                                    <div class="slds-col">
+                                            <div class="slds-grid">
+                                                    <template for:each={cardsrow1} for:item="card">
+                                                            <div data-id={card.color} onclick={Click} key={card.color} style="height: 150px; width: 100px;margin-left:3vh;" class="card slds-card slds-m-around_small"></div>
+                                                    </template>
+                                            </div>
+                                            <div class="slds-col">
+                                                    <div class="slds-grid">
+                                                            <template for:each={cardsrow2} for:item="card">
+                                                                    <div data-id={card.color} onclick={Click} key={card.color} style="height: 150px; width: 100px; margin-left:3vh" class="card slds-card slds-m-around_small slds-m-top_medium"></div>
+                                                            </template>
+                                                    </div>
+                                            </div>
+                                    </div>
+                            </div>
+                    </div>
+            </template>
+
+
+            <!-- Showing cards of Medium Level -->
+            <template if:true={ShowGameMedium}>
+                    <div style="margin-top: 10vh;margin-left:1.5%;display:flexbox;height:800px;width:875px; border: 3px solid black; border-radius: 5%; background-color: rgba(110, 193, 244, 0.3);">
+                            <div  style="background-color: rgba(0, 0, 0, 0.1);padding: 20px;border-radius: 30px; margin-top:2vh">
+                                <div  style="font-size: 25px;">
+                                    Player Name : {PlayerName}
+                            </div>
+                            <div  style="font-size: 25px;">
+                                    Total Source : {score}
+                            </div>
+                    </div>
+                    <div  style="background-color: rgba(0, 0, 0, 0.1);padding: 20px;border-radius: 30px; margin-top:2vh">
+                            <div  style="font-size: 25px;text-align:center;">
+                                    {TimeMedium}
+                            </div>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                    <div class="slds-grid" style="margin-top: 7vh; margin-left:6%">
+                                            <template for:each={cardsrow1} for:item="card">
+                                                <!-- Cards -->
+                                                    <div data-id={card.color} onclick={Click} key={card.color} style="height: 150px; width: 100px;margin-left:3vh;" class="card slds-card slds-m-around_small"></div>
+                                            </template>
+                                    </div>
+                                    <div class="slds-col">
+                                            <div class="slds-grid" style="margin-top: 5vh; margin-left:5%">
+                                                    <template for:each={cardsrow2} for:item="card">
+                                                            <div data-id={card.color} onclick={Click} key={card.color} style="height: 150px; width: 100px; margin-left:3vh" class="card slds-card slds-m-around_small slds-m-top_medium"></div>
+                                                    </template>
+                                            </div>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+    </template>
+
+    <!-- Showing cars of Hard Level -->
+
+    <template if:true={ShowGameHard}>
+            <div style="margin-top: 10vh;margin-left:1.5%;display:flexbox;height:800px;width:875px; border: 3px solid black; border-radius: 5%; background-color: rgba(110, 193, 244, 0.3);">
+                    <div  style="background-color: rgba(0, 0, 0, 0.1);padding: 20px;border-radius: 30px; margin-top:2vh">
+                            <div  style="font-size: 25px;">
+                                    Player Name : {PlayerName}
+                            </div>
+                            <div  style="font-size: 25px;">
+                                    Total Source : {score}
+                            </div>
+                    </div>
+                    <div  style="background-color: rgba(0, 0, 0, 0.1);padding: 20px;border-radius: 30px; margin-top:2vh">
+                            <div  style="font-size: 25px;text-align:center;">
+                                    {TimeHard}
+                            </div>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                    <div class="slds-grid" style="margin-top: 7vh; margin-left:6%">
+                                            <template for:each={cardsrow1} for:item="card">
+                                                    <div data-id={card.color} onclick={Click} key={card.color} style="height: 150px; width: 100px;margin-left:3vh;" class="card slds-card slds-m-around_small"></div>
+                                            </template>
+                                    </div>
+                                    <div class="slds-col">
+                                            <div class="slds-grid" style="margin-top: 5vh; margin-left:5%">
+                                                    <template for:each={cardsrow2} for:item="card">
+                                                        <div data-id={card.color} onclick={Click} key={card.color} style="height: 150px; width: 100px; margin-left:3vh" class="card slds-card slds-m-around_small slds-m-top_medium"></div>
+                                                                </template>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </template>
+
+        </lightning-card>
+</template>

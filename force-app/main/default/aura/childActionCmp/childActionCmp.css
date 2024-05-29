@@ -1,0 +1,13 @@
+.THIS.my-input {
+    border: 1px solid cadetblue;
+    background-color: lightblue;
+    border-radius: 20px;
+    padding: 1rem;
+    padding-bottom: 1.3rem;
+    width: 20rem;
+    
+    
+}
+.THIS.slds-input {
+   	border-radius: 20px; 
+}

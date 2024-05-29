@@ -1,0 +1,4 @@
+<aura:component >
+	<h1>This is my second aura component created for test purpose.</h1>
+	<p>Hello this is the description area of DemoComponent1</p>
+</aura:component>

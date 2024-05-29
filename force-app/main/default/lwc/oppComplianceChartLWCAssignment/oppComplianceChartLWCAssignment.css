@@ -1,0 +1,197 @@
+/*
+ * The basic reset
+ *
+ * Zero-down certain things to make them look identical on 
+ * different browsers.
+ *
+ * @since 06/07/22
+ */
+
+ .card {
+  margin: 1rem;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+ }
+
+ .svg-pi-group {
+    max-width: 200px;
+    max-height: 200px;
+ }
+
+ body {
+  font: 1em/1.618 sans-serif;
+  margin: 0;
+  color: #333;
+}
+
+svg {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/*
+ * General utitlities
+ *
+ * Add general utilities like layout, type, and more to 
+ * support the demonstration. 
+ *
+ * @since 06/07/22
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.colophon {
+  width: 100%;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.colophon h2 + h4 {
+  margin-top: -1em;
+  color: #888;
+  font-weight: normal;
+}
+
+
+/* css for outer circle */
+.svg-pi {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg); /* Fix the orientation */
+}
+
+.svg-pi-track {
+  stroke: #ddd;
+}
+
+.svg-pi-indicator {
+  stroke: rgb(133,80,187);
+  stroke-dasharray: 555px; /* DashArray = Track's or indicator's Circumference */
+  stroke-linecap: round;
+}
+
+.svg-pi-track,
+.svg-pi-indicator {
+  cx: 100px;
+  cy: 100px;
+  r: 90px;
+  fill: transparent;
+  stroke-width: 12px;
+}
+
+.svg-pi-25 .svg-pi-indicator {
+  stroke-dashoffset: 545px; /* DashOffset = DashArray * ((100 - progress)/100) */
+}
+
+
+
+/* css for middel circle */
+/* .svg-pi-50 {
+  margin-right: 3rem;
+  margin-top: -14rem;
+} */
+.svg-pi-1 {
+  margin-top: -14rem;
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg); /* Fix the orientation */
+}
+
+.svg-pi-track-1 {
+  stroke: #ddd;
+}
+
+.svg-pi-indicator-1 {
+  stroke: rgb(249,129,85);
+  stroke-dasharray: 518px; /* DashArray = Track's or indicator's Circumference */
+  stroke-linecap: round;
+}
+
+.svg-pi-track-1,
+.svg-pi-indicator-1 {
+  cx: 100px;
+  cy: 100px;
+  r: 70px;
+  fill: transparent;
+  stroke-width: 12px;
+}
+
+.svg-pi-50 .svg-pi-indicator-1 {
+  stroke-dashoffset: 518px; /* DashOffset = DashArray * ((100 - progress)/100) */
+}
+
+
+
+
+/* css for inner circle */
+/* .svg-pi-70 {
+  margin-right: 3rem;
+  margin-top: -16.5rem;
+} */
+
+.svg-pi-2 {
+  margin-top: -16.5rem;
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg); /* Fix the orientation */
+}
+
+.svg-pi-track-2 {
+  stroke: #ddd;
+}
+
+.svg-pi-indicator-2 {
+  stroke: rgb(255,145,205);
+  stroke-dasharray: 310px; /* DashArray = Track's or indicator's Circumference */
+  stroke-linecap: round;
+}
+
+.svg-pi-track-2,
+.svg-pi-indicator-2 {
+  cx: 100px;
+  cy: 100px;
+  r: 50px;
+  fill: transparent;
+  stroke-width: 12px;
+}
+
+.svg-pi-70 .svg-pi-indicator-2 {
+  stroke-dashoffset:310px; /* DashOffset = DashArray * ((100 - progress)/100) */
+}
+
+.footer-css {
+  width: 100%;
+  .detail-cw {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(133,80,187);
+  }
+  .detail-cl {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(249,129,85);
+  }
+  .detail-open {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(255,145,205);
+  }
+  .footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.heading-css {
+  font-weight: bold;
+}

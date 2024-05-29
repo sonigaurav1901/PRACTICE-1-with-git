@@ -1,0 +1,30 @@
+<template>
+    <div style="background-color: blueviolet; width: 30rem; height: 10rem; ">
+    <div>
+        <p style="font-size: medium; font-weight: bold;">Parent Component</p> 
+        
+        child one : {c1Val}  child two : {c2Val} child three : {c3Val}
+        <br>
+        <br>
+        
+    </div>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col" style="background-color: burlywood; margin: 0.25cm;">
+          <span>
+            <c-child1-lwc-ass oncountofchild1={child1Fun}></c-child1-lwc-ass>
+          </span>
+        </div>
+        <div class="slds-col" style="background-color: burlywood; margin: 0.25cm;">
+          <span>
+            <c-child2-lwc-ass oncountofchild2={child2Fun}></c-child2-lwc-ass>
+          </span>
+        </div>
+        <div class="slds-col" style="background-color: burlywood; margin: 0.25cm;">
+          <span>
+            <c-child3-lwc-ass oncountofchild3={child3Fun}></c-child3-lwc-ass>
+          </span>
+        </div>
+      </div>
+    </div>
+</template>

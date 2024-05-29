@@ -1,0 +1,6 @@
+<aura:component >
+    <p> My First Lightning Aura Component </p>
+	<p>Calling DemoComp1 from DemoComp itself
+        <c:DemoComp1/>
+    </p>
+</aura:component>

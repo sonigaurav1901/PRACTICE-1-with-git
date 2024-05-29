@@ -1,0 +1,10 @@
+<apex:page controller="vfDataFetch" action="{!myMethod}">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="BOTTOM">
+                <apex:pageMessages id="showmsg"></apex:pageMessages>
+                <apex:commandButton value="proced" action="{!redirectFun}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
